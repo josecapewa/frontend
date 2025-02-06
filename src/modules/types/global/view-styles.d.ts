@@ -1,0 +1,1 @@
+type TPossibleViewStyles = "table" | "card";
