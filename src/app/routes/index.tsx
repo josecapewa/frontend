@@ -9,6 +9,7 @@ import benefitsRoutes from "./benefits";
 import categoriesRoutes from "./category";
 
 const ProfileSettingsPage = lazy(() => import("../pages/profile-settings"));
+const SignUpPage = lazy(() => import("../pages/signup"));
 
 const router = createBrowserRouter(
   [
@@ -38,6 +39,10 @@ const router = createBrowserRouter(
     {
       path: "/cadastro",
       element: <LoginPage />,
+    },
+    {
+      path: "/registrar",
+      element: <SignUpPage />,
     },
     {
       path: "/",
