@@ -11,7 +11,7 @@ export default function UserSettingsPage() {
   const user = useSessionStore((state) => state.user);
   const setUser = useSessionStore((state) => state.setUser);
   const [userNewImage, setUserNewImage] = useState<File | null>(null);
-  const existentPhoto = user?.foto || user?.pessoa.foto;
+  const existentPhoto = user?.foto;
   const userImage = existentPhoto
     ? `${import.meta.env.VITE_IMAGES_DIR}/${existentPhoto}`
     : undefined;
@@ -32,10 +32,7 @@ export default function UserSettingsPage() {
           imageUrl={userImage}
         />
         <div>
-          <h2 className="text-xl 2xl:text-4xl">{user?.pessoa.nome ?? "N/A"}</h2>
-          <h3 className="text-lg 2xl:text-xl text-gray-600">
-            {user?.nome_usuario}
-          </h3>
+          <h2 className="text-xl 2xl:text-4xl">{user?.nome ?? "N/A"}</h2>
         </div>
       </article>
       <section className="flex [&>*]:flex-grow flex-wrap gap-4 2xl:gap-10">
@@ -52,9 +49,9 @@ export default function UserSettingsPage() {
               userImage={userNewImage}
               onEdit={handleOnEdit}
               userDefaultData={{
-                nome_usuario: user?.nome_usuario,
-                email: user?.pessoa.email?.email,
-                telefone: user?.pessoa.telefone?.numero,
+                nome: user?.nome,
+                email: user?.email,
+                telefone: user?.telefone,
               }}
             />
           </article>

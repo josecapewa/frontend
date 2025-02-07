@@ -1,4 +1,5 @@
 import { menuOptions } from "@/lib/side-bar-options";
+import { useAppStore } from "@/modules/services/stores/app";
 import clsx from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMemo } from "react";
@@ -6,6 +7,7 @@ import { Link, useLocation } from "react-router";
 
 export function NavLinks() {
   const { pathname } = useLocation();
+  const setSelectedMenu = useAppStore((state) => state.setSelectedMenu);
 
   const selectedMenuOption = useMemo(() => {
     const keys = Object.keys(menuOptions);
@@ -42,6 +44,7 @@ export function NavLinks() {
                   }
                 )}
                 to={option.path}
+                onClick={() => setSelectedMenu(option)}
               >
                 {option.icon && <option.icon className="size-5" />}
                 <span>{option.label}</span>

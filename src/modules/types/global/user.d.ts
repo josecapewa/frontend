@@ -1,12 +1,13 @@
 type User = {
   id: string;
-  id_pessoa: string;
-  nome_usuario: string;
+  nome: string;
+  email: string;
+  email_recuperacao: string | null;
+  senha: string;
+  telefone: string;
+  pontos: number;
   foto: string | null;
-  password: string;
-  is_master: boolean;
-  pessoa: Person;
-  permissoes_telas: UserScreenPermission[];
+  tipo: string;
 };
 type UserToCreate = Omit<
   User,

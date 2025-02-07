@@ -2,7 +2,7 @@ import { useAppStore } from "@/modules/services/stores/app";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-export const exceptionPaths = ["/login", "/painel-principal", "/painel-do-aluno"];
+export const exceptionPaths = ["/login", "/painel-principal", "/cadastro"];
 
 const PathSaver = () => {
   const setPreviusLocation = useAppStore((state) => state.setPreviusLocation);

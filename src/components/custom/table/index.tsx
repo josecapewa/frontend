@@ -16,7 +16,6 @@ import { ArrowUp, Pencil } from "lucide-react";
 import { MdDelete } from "react-icons/md";
 import clsx from "clsx";
 import { cn } from "@/lib/utils";
-import { usePermissions } from "@/modules/hooks/use-permissions";
 
 interface CustomTableProps<T> {
   data?: T[];
@@ -52,9 +51,6 @@ export default function CustomTable<T>({
   onRowClick,
   addOperation,
 }: CustomTableProps<T>) {
-  const { hasPermission } = usePermissions();
-  const canEdit = hasPermission("EDITAR") && onEdit !== undefined;
-  const canDelete = hasPermission("ELIMINAR") && onDelete !== undefined;
 
   const [sortColumn, setSortColumn] = useState<number | null>(null);
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
@@ -142,7 +138,7 @@ export default function CustomTable<T>({
               </span>
             </TableHead>
           ))}
-          {(canEdit || canDelete || addOperation) && (
+          {(addOperation) && (
             <TableHead className="text-center w-min">Operações</TableHead>
           )}
         </TableRow>
@@ -182,7 +178,7 @@ export default function CustomTable<T>({
                     </TableCell>
                   )
                 )}
-                {(canEdit || canDelete || addOperation) && (
+                {(addOperation) && (
                   <TableCell className="flex items-center h-full gap-2 text-sm justify-center">
                     {typeof addOperation === "function"
                       ? addOperation(item)

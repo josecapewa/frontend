@@ -34,7 +34,8 @@ export default function AppLayout() {
       async (error) => {
         if (
           error.response?.status === 401 &&
-          error.response?.config.url !== "/login"
+          (error.response?.config.url !== "/login" ||
+          error.response?.config.url !== "/cadastro")
         ) {
           if (!sessionExpired) {
             queryClient.cancelQueries();
@@ -59,6 +60,7 @@ export default function AppLayout() {
     setSessionExpired(false);
   };
 
+  console.log(title)
   return (
     <QueryProvider>
       <SidebarProvider className="h-screen">

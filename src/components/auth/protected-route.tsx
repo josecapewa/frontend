@@ -18,12 +18,9 @@ export default function ProtectedRoute({
   const loged = useAppStore((state) => state.loged);
   const setLoged = useAppStore((state) => state.setLoged);
   const setUser = useSessionStore((state) => state.setUser);
-  const setTargetPath = useAppStore((state) => state.setTargetPath);
-  const { pathname } = useLocation();
 
   useEffect(() => {
     if (!loged) {
-      setTargetPath(pathname);
       navigate("/login");
       return;
     }
@@ -43,8 +40,8 @@ export default function ProtectedRoute({
           toastErrorConfig("Erro ao buscar dados do usuário", error);
           setLoading(false);
           setLoged(false);
+          console.log()
           setUser(null);
-          setTargetPath(pathname);
           navigate("/login");
         }
       }
@@ -56,20 +53,9 @@ export default function ProtectedRoute({
     return <AppLoading />;
   }
 
-  if (user === null || !user.permissoes_telas) {
+  if (user === null) {
     return <Navigate to="/login" />;
   }
 
-  const isStudent = user.pessoa.aluno !== null;
-  const hasPermission =
-    user.permissoes_telas.some((perm) => perm.caminho_tela === pathname) ||
-    (isStudent && pathname === "/painel-do-aluno") ||
-    (!isStudent && pathname === "/painel-principal") ||
-    user.is_master;
-
-  if (hasPermission) {
-    return children;
-  }
-
-  return <Navigate to={isStudent ? "/painel-do-aluno" : "/painel-principal"} />;
+  return <>{children}</>;
 }

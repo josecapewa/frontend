@@ -1,5 +1,5 @@
 import { MenuOption } from "@/modules/types/MenuOption";
-import { FaExchangeAlt } from "react-icons/fa";
+import { FaExchangeAlt, FaNetworkWired } from "react-icons/fa";
 import { FaHome, FaChartPie } from "react-icons/fa";
 
 /**
@@ -12,13 +12,18 @@ export const baseMenuOptions: MenuOption = {
   children: [
     {
       label: "Inicio",
-      path: "/inicio",
+      path: "/painel-principal",
       icon: FaChartPie,
     },
     {
-      label: "Trocas",
-      path: "/trocas",
+      label: "Benefícios",
+      path: "/beneficios",
       icon: FaExchangeAlt,
+    },
+    {
+      label: "Categorias de benefícios",
+      path: "/categorias",
+      icon: FaNetworkWired,
     }
   ],
 };

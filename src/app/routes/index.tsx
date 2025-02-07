@@ -4,8 +4,9 @@ import AppLayout from "../layout";
 import LoginPage from "../pages/login";
 import CustomNotFoundPage from "../not-found";
 import ProtectedRoute from "@/components/auth/protected-route";
-import commonSideRoutes from "./common-side";
 import { lazy } from "react";
+import benefitsRoutes from "./benefits";
+import categoriesRoutes from "./category";
 
 const ProfileSettingsPage = lazy(() => import("../pages/profile-settings"));
 
@@ -18,7 +19,8 @@ const router = createBrowserRouter(
         </ProtectedRoute>
       ),
       children: [
-        ...commonSideRoutes,
+        ...benefitsRoutes,
+        categoriesRoutes,
         {
           path: "/perfil",
           element: <ProfileSettingsPage />,
@@ -31,6 +33,10 @@ const router = createBrowserRouter(
     },
     {
       path: "/login",
+      element: <LoginPage />,
+    },
+    {
+      path: "/cadastro",
       element: <LoginPage />,
     },
     {

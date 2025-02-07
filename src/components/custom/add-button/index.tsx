@@ -9,7 +9,7 @@ const AddButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Button
         ref={ref}
         {...props}
-        className={cn("flex gap-2 items-center", className)}
+        className={cn("flex gap-2  lg:text-xl items-center", className)}
       >
         {children}
         <PlusCircle />

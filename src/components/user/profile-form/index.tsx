@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 export type UserProfileData = {
-  nome_usuario?: string;
+  nome?: string;
   email?: string;
   password?: string;
   telefone?: string;
@@ -61,8 +61,8 @@ export default function UserProfileForm({
         Nome de usuário
         <Input
           disabled={loading}
-          value={userData?.nome_usuario ?? userDefaultData?.nome_usuario}
-          onChange={(e) => handleFieldEdit(e.target.value, "nome_usuario")}
+          value={userData?.nome ?? userDefaultData?.nome}
+          onChange={(e) => handleFieldEdit(e.target.value, "nome")}
         />
       </Label>
       <Label className="flex flex-col">

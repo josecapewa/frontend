@@ -1,6 +1,7 @@
 type Category = {
   id: string;
-  categoria: string;
+  nome: string;
+  descricao: string;
 };
 
 type CategoryToCreate = Omit<Category, "id">;

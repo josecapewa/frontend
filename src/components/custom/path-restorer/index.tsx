@@ -1,19 +1,5 @@
-import { useAppStore } from "@/modules/services/stores/app";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-
 const PathRestorer = () => {
-  const targetPath = useAppStore((state) => state.targetPath);
-  const setTargetPath = useAppStore((state) => state.setTargetPath);
 
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (targetPath) {
-      navigate(targetPath);
-      setTargetPath(null);
-    }
-  }, [targetPath]);
 
   return null;
   // <AlertDialog open={!!previousLocation}>

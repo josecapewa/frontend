@@ -1,12 +1,5 @@
-import {
-  Bell,
-  ChevronsUpDown,
-  LogOut,
-  MenuIcon,
-  Settings2,
-  UserCog,
-} from "lucide-react";
-import { SidebarMenuButton, SidebarMenuItem, useSidebar } from "../ui/sidebar";
+import { Bell, LogOut, MenuIcon, Settings2, UserCog } from "lucide-react";
+import { SidebarMenuButton, useSidebar } from "../ui/sidebar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -36,8 +29,8 @@ export default function AppHeader() {
   const user = useSessionStore((state) => state.user);
   const setFastSettingsOpen = useAppStore((state) => state.setFastSettingsOpen);
 
-  const userImage = user?.pessoa.foto
-    ? `${import.meta.env.VITE_IMAGES_DIR}/${user?.pessoa.foto}`
+  const userImage = user?.foto
+    ? `${import.meta.env.VITE_IMAGES_DIR}/${user?.foto}`
     : undefined;
 
   const handleLogout = () => {
@@ -68,13 +61,13 @@ export default function AppHeader() {
             <SidebarMenuButton size="lg" className="text-zinc-950">
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate text-xs font-semibold">
-                  {user?.pessoa.nome}
+                  {user?.nome}
                 </span>
               </div>
               <Avatar className="size-10 rounded-full">
-                <AvatarImage src={userImage} alt={user?.pessoa.nome} />
+                <AvatarImage src={userImage} alt={user?.nome} />
                 <AvatarFallback className="rounded-full text-zinc-950 font-bold">
-                  {getInitials(user?.pessoa.nome)}
+                  {getInitials(user?.nome)}
                 </AvatarFallback>
               </Avatar>
             </SidebarMenuButton>
@@ -88,14 +81,14 @@ export default function AppHeader() {
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-full text-zinc-950 font-bold">
-                  <AvatarImage src={userImage} alt={user?.pessoa.nome} />
+                  <AvatarImage src={userImage} alt={user?.nome} />
                   <AvatarFallback className="rounded-full">
-                    {getInitials(user?.pessoa.nome)}
+                    {getInitials(user?.nome)}
                   </AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold">
-                    {user?.pessoa.nome}
+                    {user?.nome}
                   </span>
                 </div>
               </div>
