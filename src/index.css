@@ -54,7 +54,7 @@
   height: 6px;
 }
 .custom_scroll::-webkit-scrollbar-thumb {
-  background-color: #ee732b;
+  background-color: #027D51;
   border-radius: 5px;
   cursor: pointer;
 }

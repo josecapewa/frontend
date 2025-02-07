@@ -36,7 +36,7 @@ export function NavLinks() {
                 title={option.label}
                 key={ind}
                 className={clsx(
-                  "p-2 px-4 rounded-r-sm font-bold hover:bg-[#d96f3227] hover:rounded-l-none hover:border-l-[8px] box-border hover:border-white flex items-center gap-2 transition-all",
+                  "p-2 px-4 rounded-r-sm font-bold hover:bg-[#229e54] hover:rounded-l-none hover:border-l-[8px] box-border hover:border-white flex items-center gap-2 transition-all",
                   {
                     "border-l-[4px] text-white border-[#27AE60] bg-[#27AE60]":
                       pathname.endsWith(option.path),
