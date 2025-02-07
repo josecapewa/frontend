@@ -113,6 +113,12 @@ export function LoginForm({
             {loginButtonText}
           </Button>
         </div>
+        <p className="text-gray-600 text-center">
+          Não tem uma conta?{" "}
+          <a href="/registrar" className="text-primary font-bold hover:underline">
+            Resgitre-se agora
+          </a>
+        </p>
       </form>
     </Form>
   );

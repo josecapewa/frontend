@@ -9,22 +9,6 @@ type User = {
   foto: string | null;
   tipo: string;
 };
-type UserToCreate = Omit<
-  User,
-  | "id"
-  | "permissoes_telas"
-  | "pessoa"
-  | "password"
-  | "id_pessoa"
-  | "is_master"
-  | "foto"
-> & {
-  nome: string;
-  genero: boolean;
-  telefone: string;
-  permissoes_telas?: UserScreenPermissionToCreate[];
-};
+type UserToCreate = Omit<User, "id" | "pontos" | "foto" | "tipo">;
 
-type UserToUpdate = Partial<UserToCreate> & {
-  permissoes_telas?: UserScreenPermissionToCreate[];
-};
+type UserToUpdate = Partial<UserToCreate>;
