@@ -9,6 +9,7 @@ type StatisticCardProps = {
   icon: React.ReactNode;
   type?: "count" | "percentage" | "money";
   usePercentual?: boolean;
+  afterValue?: string;
 };
 export default function StatisticCard({
   value,
@@ -16,11 +17,12 @@ export default function StatisticCard({
   subtitle,
   icon,
   usePercentual,
+  afterValue,
 }: StatisticCardProps) {
   if (!value && !title) return <StatisticCardSkeleton />;
 
   return (
-    <Card className="w-full relative shadow-md justify-between flex gap-6 p-4 bg-gradient-to-r from-gray-500 to-ipilOrange rounded-lg text-white transition-all">
+    <Card className="w-full relative shadow-md justify-between flex gap-6 p-4 bg-gradient-to-r from-gray-500 to-[#27AE60] rounded-lg text-white transition-all">
       <section className="flex flex-col w-max gap-2 justify-between">
         <h1 className="text-xl 2xl:text-3xl font-bold statistic:text-nowrap">
           {title}
@@ -28,7 +30,11 @@ export default function StatisticCard({
         <p>{subtitle}</p>
         <div className="2xl:text-2xl">
           <NumberTicker className="text-white font-semibold" value={value} />
-          {usePercentual && <span className="text-white">%</span>}
+          {!afterValue && usePercentual ? (
+            <span className="text-white">%</span>
+          ) : (
+            <span className="text-white">{afterValue}</span>
+          )}
         </div>
       </section>
       <div className="p-2 border max-statistic:absolute flex my-auto h-max max-statistic:opacity-50 max-statistic:-translate-x-1/2 max-statistic:-translate-y-1/2 max-statistic:left-1/2 max-statistic: top-1/2 rounded-full">

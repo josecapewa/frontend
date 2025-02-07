@@ -10,6 +10,7 @@ import categoriesRoutes from "./category";
 
 const ProfileSettingsPage = lazy(() => import("../pages/profile-settings"));
 const SignUpPage = lazy(() => import("../pages/signup"));
+const DashboardPage = lazy(() => import("../pages/dashboard"));
 
 const router = createBrowserRouter(
   [
@@ -25,6 +26,10 @@ const router = createBrowserRouter(
         {
           path: "/perfil",
           element: <ProfileSettingsPage />,
+        },
+        {
+          path: "/painel-principal",
+          element: <DashboardPage />,
         },
         {
           path: "*",
